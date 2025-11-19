@@ -19,7 +19,7 @@ jobs:
             touch foo
             echo done
       - name: Check
-        if: matrix.info == Hello
+        if: matrix.info == "Hello"
         uses: cross-platform-actions/action@v0.30.0
         with:
           operating_system: freebsd
