@@ -14,9 +14,11 @@ jobs:
           version: "14.3"
           run: |
             touch foo
+            echo done
       - uses: cross-platform-actions/action@v0.30.0
         with:
           operating_system: freebsd
           version: "14.3"
           run: |
             ls
+            echo done
