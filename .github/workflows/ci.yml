@@ -6,6 +6,9 @@ jobs:
   x86_64-freebsd:
     name: FreeBSD (x86_64) ${{ matrix.compiler }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        info: ["Hello"]
     steps:
       - uses: actions/checkout@v4
       - uses: cross-platform-actions/action@v0.30.0
@@ -15,7 +18,9 @@ jobs:
           run: |
             touch foo
             echo done
-      - uses: cross-platform-actions/action@v0.30.0
+      - name: Check
+        if: matrix.info == Hello
+        uses: cross-platform-actions/action@v0.30.0
         with:
           operating_system: freebsd
           version: "14.3"
