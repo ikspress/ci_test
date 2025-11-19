@@ -1,0 +1,20 @@
+name: CI
+
+jobs:
+  x86_64-freebsd:
+    name: FreeBSD (x86_64) ${{ matrix.compiler }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cross-platform-actions/action@v0.30.0
+        with:
+          operating_system: freebsd
+          version: "14.3"
+          run: |
+            touch foo
+      - uses: cross-platform-actions/action@v0.30.0
+        with:
+          operating_system: freebsd
+          version: "14.3"
+          run: |
+            ls
